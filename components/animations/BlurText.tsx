@@ -99,62 +99,13 @@ export function BlurTextGradient({
   gradientVia = 'via-calm-500',
   gradientTo = 'to-warmth-500',
   className = '',
-  delay = 0,
-  duration = 0.5,
-  yOffset = 20,
-  animateOnce = true,
+  ...props
 }: BlurTextGradientProps) {
-  const ref = useRef<HTMLSpanElement>(null);
-  const isInView = useInView(ref, { once: animateOnce, margin: '-100px' });
-  const words = text.split(' ');
-
-  const containerVariants: Variants = {
-    hidden: {},
-    visible: {
-      transition: {
-        staggerChildren: 0.08,
-        delayChildren: delay,
-      },
-    },
-  };
-
-  // For gradient text, we can't use blur filter (breaks bg-clip-text)
-  // So we use opacity + transform only
-  const wordVariants: Variants = {
-    hidden: {
-      opacity: 0,
-      y: yOffset,
-      scale: 0.95,
-    },
-    visible: {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      transition: {
-        duration,
-        ease: [0.25, 0.1, 0.25, 1],
-      },
-    },
-  };
-
   return (
-    <motion.span
-      ref={ref}
-      className={`inline-flex flex-wrap bg-gradient-to-r ${gradientFrom} ${gradientVia} ${gradientTo} bg-clip-text text-transparent ${className}`}
-      variants={containerVariants}
-      initial="hidden"
-      animate={isInView ? 'visible' : 'hidden'}
-      aria-label={text}
-    >
-      {words.map((word, i) => (
-        <motion.span
-          key={`${word}-${i}`}
-          variants={wordVariants}
-          className="inline-block mr-[0.25em] last:mr-0"
-        >
-          {word}
-        </motion.span>
-      ))}
-    </motion.span>
+    <BlurText
+      text={text}
+      className={`bg-gradient-to-r ${gradientFrom} ${gradientVia} ${gradientTo} bg-clip-text text-transparent ${className}`}
+      {...props}
+    />
   );
 }
