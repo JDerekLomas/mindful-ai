@@ -1,0 +1,69 @@
+{
+  "tasks": [
+    {
+      "id": "cc93a3e0-d0db-4ea3-b602-ee708ea7bf6c",
+      "name": "hero-bg",
+      "description": "Hero background - lavender/teal gradients"
+    },
+    {
+      "id": "8e6a4ece-b65f-470b-9304-24f368748fc7",
+      "name": "category-mental-health",
+      "description": "Mental health category icon"
+    },
+    {
+      "id": "805a7246-76b6-4d30-b178-f54021a84eab",
+      "name": "category-focus-flow",
+      "description": "Focus & flow category icon"
+    },
+    {
+      "id": "fe604f54-b912-46bf-8da0-461a25dcc9ae",
+      "name": "category-creative",
+      "description": "Creative category icon"
+    },
+    {
+      "id": "80e24b11-efeb-45d9-be4b-b3ee63bb8ff2",
+      "name": "category-physical",
+      "description": "Physical wellness category icon"
+    },
+    {
+      "id": "77c37ca6-52ee-4639-9888-1a843ab2bd62",
+      "name": "category-connection",
+      "description": "Connection category icon"
+    },
+    {
+      "id": "487c20a8-525b-4013-a0d1-8d7e5d5ad17f",
+      "name": "category-productivity",
+      "description": "Productivity category icon"
+    },
+    {
+      "id": "620b88bb-0847-4077-8a15-026c4fdbbb28",
+      "name": "collection-anxiety-relief",
+      "description": "Anxiety relief collection cover"
+    },
+    {
+      "id": "88ea194b-213c-40f0-9476-f03f1cd6c7a8",
+      "name": "collection-deep-work",
+      "description": "Deep work collection cover"
+    },
+    {
+      "id": "d7253633-57b7-400f-aad6-b93ce109926e",
+      "name": "collection-better-sleep",
+      "description": "Better sleep collection cover"
+    },
+    {
+      "id": "a0edf5ff-122f-41a7-b38a-980c48da3b13",
+      "name": "collection-creative-spark",
+      "description": "Creative spark collection cover"
+    },
+    {
+      "id": "3d1f9de2-84e3-4943-b996-39829ee17d2f",
+      "name": "collection-remote-teams",
+      "description": "Remote teams collection cover"
+    },
+    {
+      "id": "88893b9a-ace3-4033-90ca-9f83bee54f80",
+      "name": "collection-self-discovery",
+      "description": "Self discovery collection cover"
+    }
+  ]
+}

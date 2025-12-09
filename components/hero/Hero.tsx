@@ -2,12 +2,24 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export function Hero() {
   const [email, setEmail] = useState('');
 
   return (
     <section className="relative min-h-[90vh] flex items-center overflow-hidden">
+      {/* Background image */}
+      <div className="absolute inset-0">
+        <Image
+          src="/images/hero/hero-bg.png"
+          alt=""
+          fill
+          className="object-cover opacity-30 dark:opacity-20"
+          priority
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-white/50 via-transparent to-white dark:from-neutral-950/50 dark:to-neutral-950" />
+      </div>
       {/* Background effects */}
       <div className="absolute inset-0 gradient-hero" />
       <div className="orb orb-1" />

@@ -1,5 +1,15 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { categories, Category } from '@/lib/data';
+
+const categoryImages: Record<Category, string> = {
+  'mental-health': '/images/categories/mental-health.png',
+  'focus-flow': '/images/categories/focus-flow.png',
+  'creative': '/images/categories/creative.png',
+  'physical': '/images/categories/physical.png',
+  'connection': '/images/categories/connection.png',
+  'productivity': '/images/categories/productivity.png',
+};
 
 export function Categories() {
   const categoryList = Object.entries(categories) as [Category, typeof categories[Category]][];
@@ -41,19 +51,27 @@ export function Categories() {
                 animationFillMode: 'both',
               }}
             >
-              {/* Background gradient on hover */}
-              <div
-                className="
-                  absolute inset-0
-                  opacity-0 group-hover:opacity-10
-                  transition-opacity duration-300
-                "
-                style={{ backgroundColor: cat.color }}
-              />
+              {/* Background image */}
+              <div className="absolute inset-0 opacity-10 group-hover:opacity-20 transition-opacity">
+                <Image
+                  src={categoryImages[key]}
+                  alt=""
+                  fill
+                  className="object-cover"
+                />
+              </div>
 
               {/* Content */}
               <div className="relative z-10">
-                <span className="text-3xl mb-3 block">{cat.icon}</span>
+                <div className="w-14 h-14 mb-3 rounded-xl overflow-hidden bg-white/80 dark:bg-neutral-900/80 p-2">
+                  <Image
+                    src={categoryImages[key]}
+                    alt={cat.label}
+                    width={56}
+                    height={56}
+                    className="w-full h-full object-cover rounded-lg"
+                  />
+                </div>
                 <h3 className="font-semibold text-neutral-900 dark:text-white mb-1">
                   {cat.label}
                 </h3>
