@@ -1,4 +1,6 @@
 import { CustomIcon, IconName } from '@/components/ui/CustomIcon';
+import { BlurText } from '@/components/animations/BlurText';
+import { AnimatedContent, StaggeredContent, StaggeredItem } from '@/components/animations/AnimatedContent';
 
 export function WellbeingExplainer() {
   const criteria: { icon: IconName; title: string; description: string; color: string }[] = [
@@ -33,85 +35,90 @@ export function WellbeingExplainer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
-          <span className="
-            inline-flex items-center gap-2
-            px-4 py-2
-            bg-white dark:bg-neutral-800
-            border border-neutral-200 dark:border-neutral-700
-            rounded-full
-            text-sm font-medium
-            mb-6
-          ">
-            <CustomIcon name="star" size="sm" />
-            Our Rating System
-          </span>
+          <AnimatedContent direction="up" blur>
+            <span className="
+              inline-flex items-center gap-2
+              px-4 py-2
+              bg-white dark:bg-neutral-800
+              border border-neutral-200 dark:border-neutral-700
+              rounded-full
+              text-sm font-medium
+              mb-6
+            ">
+              <CustomIcon name="star" size="sm" />
+              Our Rating System
+            </span>
+          </AnimatedContent>
+
           <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-            The Wellbeing Score
+            <BlurText text="The Wellbeing Score" delay={0.2} />
           </h2>
-          <p className="text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto text-lg">
-            Every tool is rated on four dimensions that matter for human flourishing.
-            We believe AI should enhance your life, not exploit it.
-          </p>
+
+          <AnimatedContent direction="up" delay={0.4} blur>
+            <p className="text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto text-lg">
+              Every tool is rated on four dimensions that matter for human flourishing.
+              We believe AI should enhance your life, not exploit it.
+            </p>
+          </AnimatedContent>
         </div>
 
         {/* Criteria Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-          {criteria.map((item, index) => (
-            <div
-              key={item.title}
-              className="
+        <StaggeredContent staggerDelay={0.15} className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          {criteria.map((item) => (
+            <StaggeredItem key={item.title} direction="up" blur>
+              <div className="
                 relative
                 p-6
                 bg-white dark:bg-neutral-900
                 border border-neutral-200 dark:border-neutral-800
                 rounded-2xl
-                animate-fade-in-up
-              "
-              style={{
-                animationDelay: `${index * 100}ms`,
-                animationFillMode: 'both',
-              }}
-            >
-              {/* Icon */}
-              <div
-                className="
-                  w-12 h-12
-                  flex items-center justify-center
-                  rounded-xl
-                  mb-4
-                "
-                style={{ backgroundColor: `${item.color}15`, color: item.color }}
-              >
-                <CustomIcon name={item.icon} size="lg" />
-              </div>
-
-              {/* Content */}
-              <h3 className="font-semibold text-lg mb-2">{item.title}</h3>
-              <p className="text-neutral-600 dark:text-neutral-400 text-sm">
-                {item.description}
-              </p>
-
-              {/* Score bar example */}
-              <div className="mt-4 flex items-center gap-2">
-                <div className="flex-1 h-2 bg-neutral-100 dark:bg-neutral-800 rounded-full overflow-hidden">
-                  <div
-                    className="h-full rounded-full"
-                    style={{
-                      width: '80%',
-                      backgroundColor: item.color,
-                    }}
-                  />
+                transition-all duration-300
+                hover:shadow-lg hover:shadow-neutral-200/50 dark:hover:shadow-neutral-900/50
+                hover:-translate-y-1
+              ">
+                {/* Icon */}
+                <div
+                  className="
+                    w-12 h-12
+                    flex items-center justify-center
+                    rounded-xl
+                    mb-4
+                    transition-transform duration-300
+                    group-hover:scale-110
+                  "
+                  style={{ backgroundColor: `${item.color}15`, color: item.color }}
+                >
+                  <CustomIcon name={item.icon} size="lg" />
                 </div>
-                <span className="text-xs font-medium" style={{ color: item.color }}>
-                  4/5
-                </span>
+
+                {/* Content */}
+                <h3 className="font-semibold text-lg mb-2">{item.title}</h3>
+                <p className="text-neutral-600 dark:text-neutral-400 text-sm">
+                  {item.description}
+                </p>
+
+                {/* Score bar example */}
+                <div className="mt-4 flex items-center gap-2">
+                  <div className="flex-1 h-2 bg-neutral-100 dark:bg-neutral-800 rounded-full overflow-hidden">
+                    <div
+                      className="h-full rounded-full transition-all duration-1000"
+                      style={{
+                        width: '80%',
+                        backgroundColor: item.color,
+                      }}
+                    />
+                  </div>
+                  <span className="text-xs font-medium" style={{ color: item.color }}>
+                    4/5
+                  </span>
+                </div>
               </div>
-            </div>
+            </StaggeredItem>
           ))}
-        </div>
+        </StaggeredContent>
 
         {/* Bottom CTA */}
-        <div className="text-center mt-12">
+        <AnimatedContent direction="up" delay={0.8} className="text-center mt-12">
           <p className="text-neutral-500 dark:text-neutral-400 mb-4">
             Want to know how a specific tool scores?
           </p>
@@ -127,7 +134,7 @@ export function WellbeingExplainer() {
             Explore all tools
             <CustomIcon name="arrow-right" size="md" />
           </a>
-        </div>
+        </AnimatedContent>
       </div>
     </section>
   );
