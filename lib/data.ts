@@ -41,37 +41,37 @@ export const categories: Record<Category, { label: string; color: string; descri
     label: 'Mental Health',
     color: '#8b5cf6',
     description: 'AI companions for therapy, journaling, and emotional support',
-    icon: '💜',
+    icon: 'heart',
   },
   'focus-flow': {
     label: 'Focus & Flow',
     color: '#0ea5e9',
     description: 'Tools that help you enter deep work without distractions',
-    icon: '🎯',
+    icon: 'track-changes',
   },
   'creative': {
     label: 'Creative Expression',
     color: '#f19340',
     description: 'AI that augments your creativity without replacing it',
-    icon: '🎨',
+    icon: 'palette',
   },
   'physical': {
     label: 'Physical Wellness',
     color: '#14b8a6',
     description: 'Sleep, movement, and body-aware AI tools',
-    icon: '🧘',
+    icon: 'self-improvement',
   },
   'connection': {
     label: 'Connection',
     color: '#ec4899',
     description: 'AI that brings people together, not apart',
-    icon: '💫',
+    icon: 'groups',
   },
   'productivity': {
     label: 'Mindful Productivity',
     color: '#22c55e',
     description: 'Do less, better. AI for intentional work.',
-    icon: '🌱',
+    icon: 'eco',
   },
 };
 
@@ -86,7 +86,7 @@ export const tools: AITool[] = [
     tags: ['CBT', 'Anxiety', 'Depression', 'Free'],
     wellbeing: { attention: 5, calm: 5, agency: 4, growth: 5 },
     url: 'https://woebothealth.com',
-    icon: '🤗',
+    icon: 'volunteer-activism',
     featured: true,
   },
   {
@@ -98,7 +98,7 @@ export const tools: AITool[] = [
     tags: ['Companionship', 'Conversation', 'Emotional Support'],
     wellbeing: { attention: 4, calm: 4, agency: 4, growth: 3 },
     url: 'https://replika.ai',
-    icon: '💬',
+    icon: 'forum',
   },
   {
     id: 'rosebud',
@@ -109,7 +109,7 @@ export const tools: AITool[] = [
     tags: ['Journaling', 'Self-reflection', 'Insights'],
     wellbeing: { attention: 5, calm: 5, agency: 5, growth: 5 },
     url: 'https://rosebud.app',
-    icon: '🌹',
+    icon: 'auto-stories',
     featured: true,
     isNew: true,
   },
@@ -124,7 +124,7 @@ export const tools: AITool[] = [
     tags: ['Sound', 'Focus', 'Science-backed'],
     wellbeing: { attention: 5, calm: 5, agency: 3, growth: 3 },
     url: 'https://endel.io',
-    icon: '🎵',
+    icon: 'music-note',
     featured: true,
   },
   {
@@ -136,7 +136,7 @@ export const tools: AITool[] = [
     tags: ['Music', 'Neuroscience', 'Focus', 'Sleep'],
     wellbeing: { attention: 5, calm: 5, agency: 4, growth: 3 },
     url: 'https://brain.fm',
-    icon: '🧠',
+    icon: 'headphones',
   },
   {
     id: 'opal',
@@ -147,7 +147,7 @@ export const tools: AITool[] = [
     tags: ['Digital Wellness', 'Screen Time', 'Habits'],
     wellbeing: { attention: 5, calm: 4, agency: 5, growth: 4 },
     url: 'https://opal.so',
-    icon: '💎',
+    icon: 'diamond',
     isNew: true,
   },
 
@@ -161,7 +161,7 @@ export const tools: AITool[] = [
     tags: ['Video', 'Image', 'Professional'],
     wellbeing: { attention: 3, calm: 3, agency: 5, growth: 5 },
     url: 'https://runwayml.com',
-    icon: '🎬',
+    icon: 'movie',
     featured: true,
   },
   {
@@ -173,7 +173,7 @@ export const tools: AITool[] = [
     tags: ['Music', 'Generation', 'Exploration'],
     wellbeing: { attention: 3, calm: 4, agency: 5, growth: 4 },
     url: 'https://udio.com',
-    icon: '🎸',
+    icon: 'music-video',
     isNew: true,
   },
   {
@@ -185,7 +185,7 @@ export const tools: AITool[] = [
     tags: ['Image', 'Real-time', 'Brainstorming'],
     wellbeing: { attention: 4, calm: 4, agency: 5, growth: 4 },
     url: 'https://krea.ai',
-    icon: '✨',
+    icon: 'auto-awesome',
   },
 
   // Physical Wellness
@@ -198,7 +198,7 @@ export const tools: AITool[] = [
     tags: ['Wearable', 'Sleep', 'Recovery', 'Fitness'],
     wellbeing: { attention: 4, calm: 4, agency: 5, growth: 5 },
     url: 'https://whoop.com',
-    icon: '⌚',
+    icon: 'watch',
   },
   {
     id: 'headspace',
@@ -209,7 +209,7 @@ export const tools: AITool[] = [
     tags: ['Meditation', 'Sleep', 'Stress'],
     wellbeing: { attention: 5, calm: 5, agency: 4, growth: 5 },
     url: 'https://headspace.com',
-    icon: '🧘',
+    icon: 'self-improvement',
     featured: true,
   },
   {
@@ -221,7 +221,7 @@ export const tools: AITool[] = [
     tags: ['Sleep', 'Energy', 'Circadian'],
     wellbeing: { attention: 5, calm: 5, agency: 5, growth: 4 },
     url: 'https://risescience.com',
-    icon: '🌙',
+    icon: 'nights-stay',
   },
 
   // Connection
@@ -234,7 +234,7 @@ export const tools: AITool[] = [
     tags: ['Video', 'Async', 'Teams'],
     wellbeing: { attention: 5, calm: 4, agency: 5, growth: 3 },
     url: 'https://loom.com',
-    icon: '📹',
+    icon: 'videocam',
   },
   {
     id: 'gather',
@@ -245,7 +245,7 @@ export const tools: AITool[] = [
     tags: ['Remote Work', 'Community', 'Spatial'],
     wellbeing: { attention: 4, calm: 4, agency: 5, growth: 4 },
     url: 'https://gather.town',
-    icon: '🏠',
+    icon: 'home',
   },
   {
     id: 'butter',
@@ -256,7 +256,7 @@ export const tools: AITool[] = [
     tags: ['Workshops', 'Facilitation', 'Engagement'],
     wellbeing: { attention: 4, calm: 3, agency: 4, growth: 4 },
     url: 'https://butter.us',
-    icon: '🧈',
+    icon: 'cake',
     isNew: true,
   },
 
@@ -270,7 +270,7 @@ export const tools: AITool[] = [
     tags: ['Writing', 'Organization', 'Workspace'],
     wellbeing: { attention: 4, calm: 4, agency: 5, growth: 4 },
     url: 'https://notion.so/ai',
-    icon: '📝',
+    icon: 'edit-note',
   },
   {
     id: 'sunsama',
@@ -281,7 +281,7 @@ export const tools: AITool[] = [
     tags: ['Planning', 'Time-boxing', 'Calm'],
     wellbeing: { attention: 5, calm: 5, agency: 5, growth: 4 },
     url: 'https://sunsama.com',
-    icon: '☀️',
+    icon: 'wb-sunny',
     featured: true,
   },
   {
@@ -293,7 +293,7 @@ export const tools: AITool[] = [
     tags: ['Calendar', 'Habits', 'Focus Time'],
     wellbeing: { attention: 5, calm: 4, agency: 4, growth: 4 },
     url: 'https://reclaim.ai',
-    icon: '📅',
+    icon: 'calendar',
   },
   {
     id: 'akiflow',
@@ -304,7 +304,7 @@ export const tools: AITool[] = [
     tags: ['Tasks', 'Inbox Zero', 'Prioritization'],
     wellbeing: { attention: 4, calm: 4, agency: 5, growth: 3 },
     url: 'https://akiflow.com',
-    icon: '🌊',
+    icon: 'waves',
   },
 ];
 
@@ -313,42 +313,42 @@ export const collections: Collection[] = [
     id: 'anxiety-relief',
     title: 'For Anxiety Relief',
     description: 'AI tools that help calm your mind and manage anxious thoughts',
-    emoji: '🫂',
+    emoji: 'spa',
     tools: ['woebot', 'headspace', 'endel', 'brain-fm'],
   },
   {
     id: 'deep-work',
     title: 'For Deep Work',
     description: 'Enter flow state and protect your focus',
-    emoji: '🎯',
+    emoji: 'track-changes',
     tools: ['endel', 'brain-fm', 'opal', 'sunsama', 'reclaim'],
   },
   {
     id: 'better-sleep',
     title: 'For Better Sleep',
     description: 'Wind down and wake up refreshed',
-    emoji: '😴',
+    emoji: 'bedtime',
     tools: ['rise', 'headspace', 'brain-fm', 'whoop'],
   },
   {
     id: 'creative-spark',
     title: 'For Creative Sparks',
     description: 'AI that inspires without overwhelming',
-    emoji: '⚡',
+    emoji: 'bolt',
     tools: ['runway', 'udio', 'krea', 'rosebud'],
   },
   {
     id: 'remote-teams',
     title: 'For Remote Teams',
     description: 'Stay connected without Zoom fatigue',
-    emoji: '🌍',
+    emoji: 'public',
     tools: ['loom', 'gather', 'butter', 'notion-ai'],
   },
   {
     id: 'self-discovery',
     title: 'For Self-Discovery',
     description: 'Understand yourself better with AI reflection',
-    emoji: '🔮',
+    emoji: 'flare',
     tools: ['rosebud', 'replika', 'woebot', 'whoop'],
   },
 ];

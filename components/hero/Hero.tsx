@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { EnergySavingsLeaf } from '@mui/icons-material';
 
 export function Hero() {
   const [email, setEmail] = useState('');
@@ -39,7 +40,7 @@ export function Hero() {
             mb-6
             animate-fade-in
           ">
-            <span className="animate-breathe">🌿</span>
+            <EnergySavingsLeaf className="animate-breathe text-lg" fontSize="inherit" />
             Curating AI for human flourishing
           </div>
 

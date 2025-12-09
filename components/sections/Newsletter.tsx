@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { EnergySavingsLeaf } from '@mui/icons-material';
 
 export function Newsletter() {
   const [email, setEmail] = useState('');
@@ -39,12 +40,12 @@ export function Newsletter() {
               w-16 h-16
               mx-auto mb-6
               flex items-center justify-center
-              text-3xl
               bg-white/20
               rounded-2xl
               backdrop-blur-sm
+              text-white
             ">
-              🌿
+              <EnergySavingsLeaf style={{ fontSize: '2rem' }} />
             </div>
 
             {/* Content */}

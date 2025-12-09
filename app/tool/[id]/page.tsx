@@ -4,6 +4,8 @@ import { Navbar } from '@/components/navigation/Navbar';
 import { Footer } from '@/components/navigation/Footer';
 import { ToolCard, ToolCardGrid } from '@/components/cards/ToolCard';
 import { tools, categories, getToolById, getToolsByCategory, getWellbeingAverage } from '@/lib/data';
+import { Icon } from '@/components/ui/Icon';
+import { Visibility, Waves, SportsEsports, Spa } from '@mui/icons-material';
 
 interface PageProps {
   params: { id: string };
@@ -28,10 +30,10 @@ export default function ToolPage({ params }: PageProps) {
   const wellbeingScore = getWellbeingAverage(tool.wellbeing);
 
   const wellbeingLabels = {
-    attention: { label: 'Attention Respect', icon: '👁️' },
-    calm: { label: 'Calmness', icon: '🌊' },
-    agency: { label: 'User Agency', icon: '🎮' },
-    growth: { label: 'Growth Support', icon: '🌱' },
+    attention: { label: 'Attention Respect', Icon: Visibility },
+    calm: { label: 'Calmness', Icon: Waves },
+    agency: { label: 'User Agency', Icon: SportsEsports },
+    growth: { label: 'Growth Support', Icon: Spa },
   };
 
   return (
@@ -58,12 +60,12 @@ export default function ToolPage({ params }: PageProps) {
             <div className="
               w-20 h-20
               flex items-center justify-center
-              text-4xl
               bg-neutral-100 dark:bg-neutral-800
               rounded-2xl
               flex-shrink-0
+              text-neutral-600 dark:text-neutral-300
             ">
-              {tool.icon}
+              <Icon name={tool.icon} size="large" />
             </div>
 
             {/* Info */}
@@ -89,7 +91,7 @@ export default function ToolPage({ params }: PageProps) {
                     color: category.color,
                   }}
                 >
-                  {category.icon} {category.label}
+                  <Icon name={category.icon} size="small" /> {category.label}
                 </span>
                 {tool.tags.map(tag => (
                   <span
@@ -169,9 +171,10 @@ export default function ToolPage({ params }: PageProps) {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {Object.entries(tool.wellbeing).map(([key, value]) => {
                 const info = wellbeingLabels[key as keyof typeof wellbeingLabels];
+                const IconComponent = info.Icon;
                 return (
                   <div key={key} className="flex items-center gap-3">
-                    <span className="text-xl">{info.icon}</span>
+                    <IconComponent className="text-xl text-lavender-500" fontSize="inherit" />
                     <div className="flex-1">
                       <div className="flex items-center justify-between text-sm mb-1">
                         <span className="text-neutral-600 dark:text-neutral-400">{info.label}</span>

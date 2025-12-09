@@ -1,25 +1,29 @@
+import { Visibility, Waves, SportsEsports, Spa, Assessment } from '@mui/icons-material';
+import { ComponentType } from 'react';
+import { SvgIconProps } from '@mui/material';
+
 export function WellbeingExplainer() {
-  const criteria = [
+  const criteria: { Icon: ComponentType<SvgIconProps>; title: string; description: string; color: string }[] = [
     {
-      icon: '👁️',
+      Icon: Visibility,
       title: 'Attention',
       description: 'Does it respect your attention or fight for it? Tools that let you focus without dark patterns.',
       color: '#8b5cf6',
     },
     {
-      icon: '🌊',
+      Icon: Waves,
       title: 'Calm',
       description: 'Does it create calm or chaos? Tools that reduce anxiety, not amplify it.',
       color: '#0ea5e9',
     },
     {
-      icon: '🎮',
+      Icon: SportsEsports,
       title: 'Agency',
       description: 'Are you in control? Tools that empower you to make decisions, not make them for you.',
       color: '#14b8a6',
     },
     {
-      icon: '🌱',
+      Icon: Spa,
       title: 'Growth',
       description: 'Does it help you grow? Tools that build skills and understanding, not dependence.',
       color: '#22c55e',
@@ -40,7 +44,7 @@ export function WellbeingExplainer() {
             text-sm font-medium
             mb-6
           ">
-            <span>📊</span>
+            <Assessment className="text-lg" fontSize="inherit" />
             Our Rating System
           </span>
           <h2 className="text-3xl sm:text-4xl font-bold mb-4">
@@ -75,13 +79,12 @@ export function WellbeingExplainer() {
                 className="
                   w-12 h-12
                   flex items-center justify-center
-                  text-2xl
                   rounded-xl
                   mb-4
                 "
-                style={{ backgroundColor: `${item.color}15` }}
+                style={{ backgroundColor: `${item.color}15`, color: item.color }}
               >
-                {item.icon}
+                <item.Icon style={{ fontSize: '1.5rem' }} />
               </div>
 
               {/* Content */}

@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { Collection, getCollectionTools } from '@/lib/data';
+import { Icon } from '@/components/ui/Icon';
 
 const collectionImages: Record<string, string> = {
   'anxiety-relief': '/images/collections/anxiety-relief.png',
@@ -56,20 +57,20 @@ export function CollectionCard({ collection, index = 0 }: CollectionCardProps) {
       )}
 
       <div className="p-6 pt-2">
-        {/* Emoji badge */}
+        {/* Icon badge */}
         <div className="
           w-12 h-12
           -mt-8
           relative
           flex items-center justify-center
-          text-2xl
           bg-white dark:bg-neutral-800
           border-2 border-white dark:border-neutral-700
           rounded-xl
           shadow-lg
           mb-3
+          text-lavender-500 dark:text-lavender-400
         ">
-          {collection.emoji}
+          <Icon name={collection.emoji} size="medium" />
         </div>
 
         {/* Title */}
@@ -92,14 +93,14 @@ export function CollectionCard({ collection, index = 0 }: CollectionCardProps) {
                 className="
                   w-8 h-8
                   flex items-center justify-center
-                  text-sm
                   bg-white dark:bg-neutral-800
                   border-2 border-white dark:border-neutral-700
                   rounded-full
+                  text-neutral-500 dark:text-neutral-400
                 "
                 style={{ zIndex: 4 - i }}
               >
-                {tool.icon}
+                <Icon name={tool.icon} size="small" />
               </div>
             ))}
           </div>

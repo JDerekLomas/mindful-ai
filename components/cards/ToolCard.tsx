@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { AITool, categories, getWellbeingAverage } from '@/lib/data';
+import { Icon } from '@/components/ui/Icon';
 
 interface ToolCardProps {
   tool: AITool;
@@ -54,14 +55,14 @@ export function ToolCard({ tool, index = 0 }: ToolCardProps) {
           className="
             w-12 h-12
             flex items-center justify-center
-            text-2xl
             bg-neutral-100 dark:bg-neutral-800
             rounded-xl
             group-hover:scale-110
             transition-transform duration-300
+            text-neutral-600 dark:text-neutral-300
           "
         >
-          {tool.icon}
+          <Icon name={tool.icon} size="medium" />
         </div>
 
         {/* Title & Provider */}
@@ -111,7 +112,7 @@ export function ToolCard({ tool, index = 0 }: ToolCardProps) {
             color: category.color,
           }}
         >
-          <span>{category.icon}</span>
+          <Icon name={category.icon} size="small" />
           {category.label}
         </span>
 

@@ -1,6 +1,7 @@
 import { Navbar } from '@/components/navigation/Navbar';
 import { Footer } from '@/components/navigation/Footer';
 import Link from 'next/link';
+import { EnergySavingsLeaf, Visibility, Waves, SportsEsports, Spa } from '@mui/icons-material';
 
 export default function AboutPage() {
   return (
@@ -10,7 +11,7 @@ export default function AboutPage() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Hero */}
           <div className="text-center mb-16">
-            <span className="text-6xl mb-6 block">🌿</span>
+            <EnergySavingsLeaf className="text-6xl mb-6 text-lavender-500" style={{ fontSize: '4rem' }} />
             <h1 className="text-4xl sm:text-5xl font-bold mb-6">
               AI for Human{' '}
               <span className="bg-gradient-to-r from-lavender-500 to-calm-500 bg-clip-text text-transparent">
@@ -50,22 +51,22 @@ export default function AboutPage() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               {[
                 {
-                  icon: '👁️',
+                  Icon: Visibility,
                   title: 'Attention Respect',
                   description: 'Does it fight for your attention with notifications and dark patterns, or does it let you focus?',
                 },
                 {
-                  icon: '🌊',
+                  Icon: Waves,
                   title: 'Calmness',
                   description: 'Does it create anxiety and FOMO, or does it promote a sense of calm and clarity?',
                 },
                 {
-                  icon: '🎮',
+                  Icon: SportsEsports,
                   title: 'User Agency',
                   description: 'Are you in control of the AI, or is it making decisions without your input?',
                 },
                 {
-                  icon: '🌱',
+                  Icon: Spa,
                   title: 'Growth Support',
                   description: 'Does it help you learn and improve, or does it create dependence on the tool?',
                 },
@@ -79,7 +80,7 @@ export default function AboutPage() {
                     rounded-2xl
                   "
                 >
-                  <span className="text-3xl mb-3 block">{item.icon}</span>
+                  <item.Icon className="text-3xl mb-3 text-lavender-500" style={{ fontSize: '2rem' }} />
                   <h3 className="font-semibold text-lg mb-2">{item.title}</h3>
                   <p className="text-neutral-600 dark:text-neutral-400 text-sm">
                     {item.description}

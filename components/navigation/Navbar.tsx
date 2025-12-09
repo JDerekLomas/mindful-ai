@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { EnergySavingsLeaf } from '@mui/icons-material';
 
 const navLinks = [
   { label: 'Explore', href: '/explore' },
@@ -46,7 +47,7 @@ export function Navbar() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 group">
-            <span className="text-2xl transition-transform group-hover:scale-110">🌿</span>
+            <EnergySavingsLeaf className="text-2xl text-lavender-500 transition-transform group-hover:scale-110" fontSize="inherit" />
             <span className="font-semibold text-lg">
               Mindful<span className="text-lavender-500">AI</span>
             </span>
