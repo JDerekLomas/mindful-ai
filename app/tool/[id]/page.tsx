@@ -5,7 +5,7 @@ import { Footer } from '@/components/navigation/Footer';
 import { ToolCard, ToolCardGrid } from '@/components/cards/ToolCard';
 import { tools, categories, getToolById, getToolsByCategory, getWellbeingAverage } from '@/lib/data';
 import { Icon } from '@/components/ui/Icon';
-import { Visibility, Waves, SportsEsports, Spa } from '@mui/icons-material';
+import { CustomIcon, IconName } from '@/components/ui/CustomIcon';
 
 interface PageProps {
   params: { id: string };
@@ -29,11 +29,11 @@ export default function ToolPage({ params }: PageProps) {
 
   const wellbeingScore = getWellbeingAverage(tool.wellbeing);
 
-  const wellbeingLabels = {
-    attention: { label: 'Attention Respect', Icon: Visibility },
-    calm: { label: 'Calmness', Icon: Waves },
-    agency: { label: 'User Agency', Icon: SportsEsports },
-    growth: { label: 'Growth Support', Icon: Spa },
+  const wellbeingLabels: Record<string, { label: string; icon: IconName }> = {
+    attention: { label: 'Attention Respect', icon: 'attention' },
+    calm: { label: 'Calmness', icon: 'calm' },
+    agency: { label: 'User Agency', icon: 'agency' },
+    growth: { label: 'Growth Support', icon: 'growth' },
   };
 
   return (
@@ -121,9 +121,7 @@ export default function ToolPage({ params }: PageProps) {
               "
             >
               Visit {tool.name}
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-              </svg>
+              <CustomIcon name="external-link" size="md" />
             </a>
             <button className="
               inline-flex items-center justify-center gap-2
@@ -134,9 +132,7 @@ export default function ToolPage({ params }: PageProps) {
               hover:bg-neutral-50 dark:hover:bg-neutral-800
               transition-colors
             ">
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-              </svg>
+              <CustomIcon name="heart" size="md" />
               Save to favorites
             </button>
           </div>
@@ -170,11 +166,10 @@ export default function ToolPage({ params }: PageProps) {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {Object.entries(tool.wellbeing).map(([key, value]) => {
-                const info = wellbeingLabels[key as keyof typeof wellbeingLabels];
-                const IconComponent = info.Icon;
+                const info = wellbeingLabels[key];
                 return (
                   <div key={key} className="flex items-center gap-3">
-                    <IconComponent className="text-xl text-lavender-500" fontSize="inherit" />
+                    <CustomIcon name={info.icon} size="md" className="text-lavender-500" />
                     <div className="flex-1">
                       <div className="flex items-center justify-between text-sm mb-1">
                         <span className="text-neutral-600 dark:text-neutral-400">{info.label}</span>

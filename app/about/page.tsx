@@ -1,9 +1,32 @@
 import { Navbar } from '@/components/navigation/Navbar';
 import { Footer } from '@/components/navigation/Footer';
 import Link from 'next/link';
-import { EnergySavingsLeaf, Visibility, Waves, SportsEsports, Spa } from '@mui/icons-material';
+import { CustomIcon, IconName } from '@/components/ui/CustomIcon';
 
 export default function AboutPage() {
+  const wellbeingDimensions: { icon: IconName; title: string; description: string }[] = [
+    {
+      icon: 'attention',
+      title: 'Attention Respect',
+      description: 'Does it fight for your attention with notifications and dark patterns, or does it let you focus?',
+    },
+    {
+      icon: 'calm',
+      title: 'Calmness',
+      description: 'Does it create anxiety and FOMO, or does it promote a sense of calm and clarity?',
+    },
+    {
+      icon: 'agency',
+      title: 'User Agency',
+      description: 'Are you in control of the AI, or is it making decisions without your input?',
+    },
+    {
+      icon: 'growth',
+      title: 'Growth Support',
+      description: 'Does it help you learn and improve, or does it create dependence on the tool?',
+    },
+  ];
+
   return (
     <>
       <Navbar />
@@ -11,7 +34,9 @@ export default function AboutPage() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Hero */}
           <div className="text-center mb-16">
-            <EnergySavingsLeaf className="text-6xl mb-6 text-lavender-500" style={{ fontSize: '4rem' }} />
+            <div className="mb-6 text-lavender-500">
+              <CustomIcon name="leaf" size="xl" className="w-16 h-16" />
+            </div>
             <h1 className="text-4xl sm:text-5xl font-bold mb-6">
               AI for Human{' '}
               <span className="bg-gradient-to-r from-lavender-500 to-calm-500 bg-clip-text text-transparent">
@@ -49,28 +74,7 @@ export default function AboutPage() {
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              {[
-                {
-                  Icon: Visibility,
-                  title: 'Attention Respect',
-                  description: 'Does it fight for your attention with notifications and dark patterns, or does it let you focus?',
-                },
-                {
-                  Icon: Waves,
-                  title: 'Calmness',
-                  description: 'Does it create anxiety and FOMO, or does it promote a sense of calm and clarity?',
-                },
-                {
-                  Icon: SportsEsports,
-                  title: 'User Agency',
-                  description: 'Are you in control of the AI, or is it making decisions without your input?',
-                },
-                {
-                  Icon: Spa,
-                  title: 'Growth Support',
-                  description: 'Does it help you learn and improve, or does it create dependence on the tool?',
-                },
-              ].map((item) => (
+              {wellbeingDimensions.map((item) => (
                 <div
                   key={item.title}
                   className="
@@ -80,7 +84,9 @@ export default function AboutPage() {
                     rounded-2xl
                   "
                 >
-                  <item.Icon className="text-3xl mb-3 text-lavender-500" style={{ fontSize: '2rem' }} />
+                  <div className="text-lavender-500 mb-3">
+                    <CustomIcon name={item.icon} size="lg" className="w-8 h-8" />
+                  </div>
                   <h3 className="font-semibold text-lg mb-2">{item.title}</h3>
                   <p className="text-neutral-600 dark:text-neutral-400 text-sm">
                     {item.description}
@@ -109,9 +115,9 @@ export default function AboutPage() {
                   'Accessible and inclusive design',
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-3">
-                    <svg className="w-5 h-5 text-lavender-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
+                    <span className="text-lavender-500 flex-shrink-0 mt-0.5">
+                      <CustomIcon name="check" size="md" />
+                    </span>
                     <span className="text-neutral-700 dark:text-neutral-300">{item}</span>
                   </li>
                 ))}

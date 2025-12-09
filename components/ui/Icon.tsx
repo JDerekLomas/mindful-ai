@@ -1,89 +1,55 @@
 'use client';
 
-import {
-  Favorite,
-  Psychology,
-  SelfImprovement,
-  Palette,
-  FitnessCenter,
-  Groups,
-  Spa,
-  Forum,
-  AutoStories,
-  MusicNote,
-  Headphones,
-  Diamond,
-  Movie,
-  MusicVideo,
-  AutoAwesome,
-  Watch,
-  Bedtime,
-  Videocam,
-  Home,
-  Cake,
-  EditNote,
-  WbSunny,
-  CalendarMonth,
-  Waves,
-  VolunteerActivism,
-  TrackChanges,
-  NightsStay,
-  Bolt,
-  Public,
-  FlareRounded,
-  EnergySavingsLeaf,
-} from '@mui/icons-material';
-import { SvgIconProps } from '@mui/material';
-import { ComponentType } from 'react';
+import { CustomIcon, IconName, iconNames } from './CustomIcon';
 
-// Icon mapping from name strings to Material icon components
-const iconMap: Record<string, ComponentType<SvgIconProps>> = {
+// Map old Material icon names to new custom icon names
+const iconNameMap: Record<string, IconName> = {
   // Categories
-  'heart': Favorite,
-  'psychology': Psychology,
-  'self-improvement': SelfImprovement,
-  'palette': Palette,
-  'fitness': FitnessCenter,
-  'groups': Groups,
-  'spa': Spa,
-  'eco': EnergySavingsLeaf,
+  'heart': 'heart',
+  'psychology': 'mental-health',
+  'self-improvement': 'meditate',
+  'palette': 'palette',
+  'fitness': 'physical',
+  'groups': 'community',
+  'spa': 'calm',
+  'eco': 'productivity',
+  'track-changes': 'focus-flow',
 
   // Tools - Mental Health
-  'volunteer-activism': VolunteerActivism,
-  'forum': Forum,
-  'auto-stories': AutoStories,
+  'volunteer-activism': 'heart',
+  'forum': 'chat',
+  'auto-stories': 'journal',
 
   // Tools - Focus
-  'music-note': MusicNote,
-  'headphones': Headphones,
-  'diamond': Diamond,
+  'music-note': 'sound-wave',
+  'headphones': 'headphones',
+  'diamond': 'shield',
 
   // Tools - Creative
-  'movie': Movie,
-  'music-video': MusicVideo,
-  'auto-awesome': AutoAwesome,
+  'movie': 'video',
+  'music-video': 'music',
+  'auto-awesome': 'sparkle',
 
   // Tools - Physical
-  'watch': Watch,
-  'bedtime': Bedtime,
-  'nights-stay': NightsStay,
+  'watch': 'watch',
+  'bedtime': 'moon',
+  'nights-stay': 'moon',
 
   // Tools - Connection
-  'videocam': Videocam,
-  'home': Home,
-  'cake': Cake,
+  'videocam': 'video',
+  'home': 'community',
+  'cake': 'workshop',
 
   // Tools - Productivity
-  'edit-note': EditNote,
-  'wb-sunny': WbSunny,
-  'calendar': CalendarMonth,
-  'waves': Waves,
+  'edit-note': 'notes',
+  'wb-sunny': 'sun',
+  'calendar': 'calendar',
+  'waves': 'flow',
 
   // Collections
-  'track-changes': TrackChanges,
-  'bolt': Bolt,
-  'public': Public,
-  'flare': FlareRounded,
+  'bolt': 'sparkle',
+  'public': 'connection',
+  'flare': 'growth',
 };
 
 interface IconProps {
@@ -93,23 +59,25 @@ interface IconProps {
 }
 
 export function Icon({ name, className = '', size = 'medium' }: IconProps) {
-  const IconComponent = iconMap[name];
+  // Map old name to new name, or use directly if it's a valid custom icon
+  const mappedName = iconNameMap[name] || (iconNames.includes(name as IconName) ? name : null);
 
-  if (!IconComponent) {
-    // Fallback for unknown icons
-    return <span className={className}>?</span>;
+  if (!mappedName) {
+    console.warn(`Icon: Unknown icon name "${name}"`);
+    return <span className={className}>•</span>;
   }
 
-  const sizeClass = {
-    small: 'text-lg',
-    medium: 'text-2xl',
-    large: 'text-3xl',
-  }[size];
+  const sizeMap = {
+    small: 'sm' as const,
+    medium: 'md' as const,
+    large: 'lg' as const,
+  };
 
   return (
-    <IconComponent
-      className={`${sizeClass} ${className}`}
-      fontSize="inherit"
+    <CustomIcon
+      name={mappedName as IconName}
+      size={sizeMap[size]}
+      className={className}
     />
   );
 }

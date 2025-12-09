@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { EnergySavingsLeaf, Favorite } from '@mui/icons-material';
+import { CustomIcon } from '@/components/ui/CustomIcon';
 
 const footerLinks = {
   discover: [
@@ -30,7 +30,9 @@ export function Footer() {
           {/* Brand */}
           <div className="col-span-2 md:col-span-1">
             <Link href="/" className="flex items-center gap-2 mb-4">
-              <EnergySavingsLeaf className="text-2xl text-lavender-500" fontSize="inherit" />
+              <span className="text-lavender-500">
+                <CustomIcon name="leaf" size="lg" />
+              </span>
               <span className="font-semibold text-lg">
                 Mindful<span className="text-lavender-500">AI</span>
               </span>
@@ -119,7 +121,9 @@ export function Footer() {
         {/* Bottom */}
         <div className="mt-12 pt-8 border-t border-neutral-200 dark:border-neutral-800 flex flex-col sm:flex-row justify-between items-center gap-4">
           <p className="text-sm text-neutral-500 flex items-center gap-1">
-            &copy; {new Date().getFullYear()} MindfulAI. Made with <Favorite className="text-lavender-500 text-sm" fontSize="inherit" /> for human flourishing.
+            &copy; {new Date().getFullYear()} MindfulAI. Made with{' '}
+            <span className="text-lavender-500"><CustomIcon name="heart" size="sm" /></span>{' '}
+            for human flourishing.
           </p>
           <div className="flex gap-6">
             <Link href="/privacy" className="text-sm text-neutral-500 hover:text-lavender-500">

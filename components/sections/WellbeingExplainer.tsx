@@ -1,29 +1,27 @@
-import { Visibility, Waves, SportsEsports, Spa, Assessment } from '@mui/icons-material';
-import { ComponentType } from 'react';
-import { SvgIconProps } from '@mui/material';
+import { CustomIcon, IconName } from '@/components/ui/CustomIcon';
 
 export function WellbeingExplainer() {
-  const criteria: { Icon: ComponentType<SvgIconProps>; title: string; description: string; color: string }[] = [
+  const criteria: { icon: IconName; title: string; description: string; color: string }[] = [
     {
-      Icon: Visibility,
+      icon: 'attention',
       title: 'Attention',
       description: 'Does it respect your attention or fight for it? Tools that let you focus without dark patterns.',
       color: '#8b5cf6',
     },
     {
-      Icon: Waves,
+      icon: 'calm',
       title: 'Calm',
       description: 'Does it create calm or chaos? Tools that reduce anxiety, not amplify it.',
       color: '#0ea5e9',
     },
     {
-      Icon: SportsEsports,
+      icon: 'agency',
       title: 'Agency',
       description: 'Are you in control? Tools that empower you to make decisions, not make them for you.',
       color: '#14b8a6',
     },
     {
-      Icon: Spa,
+      icon: 'growth',
       title: 'Growth',
       description: 'Does it help you grow? Tools that build skills and understanding, not dependence.',
       color: '#22c55e',
@@ -44,7 +42,7 @@ export function WellbeingExplainer() {
             text-sm font-medium
             mb-6
           ">
-            <Assessment className="text-lg" fontSize="inherit" />
+            <CustomIcon name="star" size="sm" />
             Our Rating System
           </span>
           <h2 className="text-3xl sm:text-4xl font-bold mb-4">
@@ -84,7 +82,7 @@ export function WellbeingExplainer() {
                 "
                 style={{ backgroundColor: `${item.color}15`, color: item.color }}
               >
-                <item.Icon style={{ fontSize: '1.5rem' }} />
+                <CustomIcon name={item.icon} size="lg" />
               </div>
 
               {/* Content */}
@@ -127,9 +125,7 @@ export function WellbeingExplainer() {
             "
           >
             Explore all tools
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
+            <CustomIcon name="arrow-right" size="md" />
           </a>
         </div>
       </div>

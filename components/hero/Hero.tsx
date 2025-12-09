@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { EnergySavingsLeaf } from '@mui/icons-material';
+import { CustomIcon } from '@/components/ui/CustomIcon';
 
 export function Hero() {
   const [email, setEmail] = useState('');
@@ -51,7 +51,9 @@ export function Hero() {
             mb-6
             animate-fade-in
           ">
-            <EnergySavingsLeaf className="animate-breathe text-lg" fontSize="inherit" />
+            <span className="animate-breathe">
+              <CustomIcon name="leaf" size="sm" />
+            </span>
             Curating AI for human flourishing
           </div>
 
@@ -103,9 +105,7 @@ export function Hero() {
               "
             >
               Explore Tools
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-              </svg>
+              <CustomIcon name="arrow-right" size="md" />
             </Link>
             <Link
               href="/collections"
@@ -151,9 +151,7 @@ export function Hero() {
         animate-bounce
         text-neutral-400
       ">
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-        </svg>
+        <CustomIcon name="chevron-down" size="lg" />
       </div>
     </section>
   );

@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { EnergySavingsLeaf } from '@mui/icons-material';
+import { CustomIcon } from '@/components/ui/CustomIcon';
 
 export function Newsletter() {
   const [email, setEmail] = useState('');
@@ -45,7 +45,7 @@ export function Newsletter() {
               backdrop-blur-sm
               text-white
             ">
-              <EnergySavingsLeaf style={{ fontSize: '2rem' }} />
+              <CustomIcon name="leaf" size="lg" className="w-8 h-8" />
             </div>
 
             {/* Content */}
@@ -66,9 +66,7 @@ export function Newsletter() {
                 rounded-full
                 text-white font-medium
               ">
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                </svg>
+                <CustomIcon name="check" size="md" />
                 You&apos;re subscribed! Welcome aboard.
               </div>
             ) : (
