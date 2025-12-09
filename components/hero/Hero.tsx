@@ -10,15 +10,26 @@ export function Hero() {
 
   return (
     <section className="relative min-h-[90vh] flex items-center overflow-hidden">
-      {/* Background image */}
+      {/* Background video - performant loop */}
       <div className="absolute inset-0">
-        <Image
-          src="/images/hero/hero-bg.png"
-          alt=""
-          fill
-          className="object-cover opacity-30 dark:opacity-20"
-          priority
-        />
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          poster="/images/hero/hero-poster.jpg"
+          className="absolute inset-0 w-full h-full object-cover opacity-40 dark:opacity-25"
+        >
+          <source src="/images/hero/hero-loop.webm" type="video/webm" />
+          <source src="/images/hero/hero-loop.mp4" type="video/mp4" />
+          {/* Fallback to static image */}
+          <Image
+            src="/images/hero/hero-bg.png"
+            alt=""
+            fill
+            className="object-cover"
+          />
+        </video>
         <div className="absolute inset-0 bg-gradient-to-b from-white/50 via-transparent to-white dark:from-neutral-950/50 dark:to-neutral-950" />
       </div>
       {/* Background effects */}
