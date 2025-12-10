@@ -2,6 +2,9 @@
   "name": "mindful-ai",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -9,10 +12,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@emotion/react": "^11.14.0",
-    "@emotion/styled": "^11.14.1",
-    "@mui/icons-material": "^7.3.6",
-    "@mui/material": "^7.3.6",
+    "framer-motion": "^12.23.26",
     "lucide-react": "^0.400.0",
     "next": "14.2.0",
     "react": "^18.2.0",
