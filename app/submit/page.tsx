@@ -12,9 +12,28 @@ export default function SubmitPage() {
     e.preventDefault();
     setFormState('submitting');
 
-    // Simulate submission
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    setFormState('success');
+    const form = e.currentTarget;
+    const name = (form.elements.namedItem('name') as HTMLInputElement).value;
+    const url = (form.elements.namedItem('url') as HTMLInputElement).value;
+    const category = (form.elements.namedItem('category') as HTMLSelectElement).value;
+    const description = (form.elements.namedItem('description') as HTMLTextAreaElement).value;
+    const email = (form.elements.namedItem('email') as HTMLInputElement).value;
+    const affiliated = (form.elements.namedItem('affiliated') as HTMLInputElement).checked;
+
+    const subject = encodeURIComponent(`Tool Submission: ${name}`);
+    const body = encodeURIComponent(
+      `Tool Name: ${name}\n` +
+      `URL: ${url}\n` +
+      `Category: ${category}\n` +
+      `Submitter Email: ${email || 'Not provided'}\n` +
+      `Affiliated: ${affiliated ? 'Yes' : 'No'}\n\n` +
+      `Why it supports wellbeing:\n${description}`
+    );
+
+    window.location.href = `mailto:j.d.lomas@tudelft.nl?subject=${subject}&body=${body}`;
+
+    // Show success after a short delay
+    setTimeout(() => setFormState('success'), 500);
   };
 
   const categoryList = Object.entries(categories) as [Category, typeof categories[Category]][];
