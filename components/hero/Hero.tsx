@@ -66,10 +66,15 @@ export function Hero() {
             animate-fade-in-up
           ">
             AI tools designed for{' '}
-            <span className="
-              bg-gradient-to-r from-lavender-500 via-calm-500 to-warmth-500
-              bg-clip-text text-transparent
-            ">
+            <span
+              className="inline-block"
+              style={{
+                background: 'linear-gradient(to right, #8b5cf6, #14b8a6, #f19340)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+              }}
+            >
               your wellbeing
             </span>
           </h1>
